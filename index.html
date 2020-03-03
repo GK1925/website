@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+
+<head>
+	<link rel="stylesheet" href="style.css" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<style>
+		.container-main {
+			background-color: chocolate;
+		}
+
+		input {
+			padding: 10px;
+			margin-left: 20px;
+			border: 2px dotted #000;
+			border-radius: 10px;
+		}
+	</style>
+</head>
+</body>
+<div class="container-main">
+	<div class="first">
+		<br>
+		<center>
+			<h1 style=" color: Black;">CRM</h1>
+		</center>
+		<hr>
+		<center>
+			<h3 style="color:yellow; background-color:black">
+				<font-size:"2px">
+					</font>ADD ACCOUNT
+			</h3>
+		</center>
+		<center>
+			<h3 style:"color:">
+				<font-size:"2px">
+					</font>DELETE ACCOUNT
+			</h3>
+		</center>
+		<center>
+			<h3 style:"color:">
+				<font-size:"2px">
+					</font>USER DETAILS
+			</h3>
+		</center>
+	</div>
+	<div class="container"
+		style="border: 2px solid #000000 !important;background-color: #fff; width: 35%; margin-left: 33%;">
+		<form name="form">
+			<center>
+				<table>
+					<h4>ADD ACCOUNT</h4>
+					<tr>
+						<p id="error" style="color:red; text-align:center"></p>
+						<td><label>FIRST NAME</label>
+							<input type="text" id="firstname_error" class="textInput" name="firstname"
+								placeholder="firstname">
+						</td>
+					</tr>
+					<tr>
+						<td><br><label>LAST NAME</label>
+							<input type="text" class="textInput" id="lastname" name="lastname" placeholder="lastname">
+						</td>
+						<div id="firstname_error1" class="val_error" style="display: none;">Firstname / Last name is
+							Empty</div>
+					</tr>
+
+
+					<tr>
+						<td><br><label>GENDER</label>
+							<span style="float:right">
+								<input type="radio" name="gender" value="male">MALE
+								<input type="radio" name="gender" value="female">FEMALE
+								<input type="radio" name="gender" value="others">OTHERS
+							</span> </td>
+					</tr>
+
+					<tr>
+						<td><br><label>PASSWORD</label>
+							<input type="password" id="passwd" name="password" class="textInput" placeholder="password"
+								onkeyup="check();">
+						</td>
+					</tr>
+
+					<tr>
+						<td><br><label>PASSWORD CONFIRMATION</label>
+							<input type="password" id="passwd1" name="password confirmation" class="textInput"
+								placeholder=" password-confirmation" onkeyup="check();">
+							<!-- <div id="password_error" class="val_error"></div> -->
+							<center><span id="message"></span></center>
+						</td>
+					</tr>
+
+					<tr>
+						<td><br><label>DOB</label>
+							<input type="date" id="dte"></td>
+					</tr>
+
+					<tr>
+						<td><br><label>EMAIL</label>
+							<input type="email" class="textInput" id="emails" name="email" placeholder="Email">
+							<div id="email_error" class="val_error">
+						</td>
+					</tr>
+					<tr>
+						<td><br><label>INSTITUTE</label>
+							<select>
+								<optgroup label="KSREI"></optgroup>
+								<option>SELECT INSTITUTE</option>
+								<option value="ksrce">KSRCE</option>
+								<option value="ksrct">KSRCT</option>
+								<option value="ksr poltechnic">KSR POLYTECHNIC</option>
+								<option value="ksr dental">KSR DENTAL</option>
+							</select></td>
+					</tr>
+					<tr>
+						<td><br>
+							<center><input type="checkbox" name="checkbox">REMEMBER PASSWORD</center>
+						</td>
+					</tr>
+					<tr>
+						<td><br>
+							<center><input type="submit" value"register" class="btn" name="register"
+									onclick="myfunction()">
+								<input type="reset"></center>
+						</td>
+					</tr>
+				</table>
+			</center>
+		</form>
+		<br />
+	</div>
+</div>
+
+<script>
+	var a = document.getElementById("firstname_error").value;
+	var b = document.getElementById("lastname").value;
+	var t = document.getElementById("passwd").value;
+	var t1 = document.getElementById("passwd1").value;
+	var ille = /[\W_]/;
+	function myfunction() {
+		if (a == "" || b == "") {
+			// alert("First / Last name is empty");
+			document.getElementById("firstname_error1").style.display = "block";
+			event.preventDefault();
+		}
+
+		if (t == null || t == "") {
+			alert("password is empty");
+
+		}
+		else if (t.length < 8) {
+			alert("Password must be at least 8 characters long.");
+
+		}
+		else if (ille.test(t)) {
+			alert("The password Doesn't contain Special Characters");
+		}
+		else if (dte == null || dte == "") {
+			alert("The date is invalid");
+		}
+		else if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(document.getElementById("emails").value))) {
+			alert("You have entered an invalid email address!");
+		}
+		
+	}
+
+	var check = function () {
+		if (document.getElementById('passwd').value ==
+			document.getElementById('passwd1').value) {
+			document.getElementById('message').style.color = 'green';
+			document.getElementById('message').innerHTML = 'matching';
+		} else {
+			document.getElementById('message').style.color = 'red';
+			document.getElementById('message').innerHTML = 'not matching';
+		}
+	}
+
+
+
+</script>
+</body>
+
+</html>
