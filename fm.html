@@ -1,0 +1,160 @@
+<html>
+<head>
+    <title>valid</title>
+    <h2 style="color: black">Student Form</h2>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style type="text/css" rel="stylesheet">
+                
+                body{
+                    
+                    background-color:cornsilk;
+                    padding-left: 750px;         
+                    border-radius: 2px;
+                    border: 2px solid black;
+                    border-width: 10px;
+                    font-size: 20px;
+                    }
+                h2{
+                    font-size: 30px;
+                    padding-left: 50px;
+                    text-decoration:underline;
+                }
+                input {
+                    display: block;
+                    padding: 5px;
+                    position: relative;
+                    margin-left: 5px;
+                    }
+                #id{
+                    border:solid 2px;
+                    padding-left: 30px;
+                }
+                span{
+                    color: red;
+                    margin-left: 80px;
+                }
+                    
+            </style>
+       
+    </head>
+    <body>
+        <form name="forms" onsubmit="return validation(this)">
+                        <p>First Name:       
+                            <input type="text" id="fn" name="first"> </p>
+                            <span id="ft"></span> <br>
+                    
+                        <p>Last Name:       
+                            <input type="text" id="ln" name="last"></p>
+                <span id="lt"></span><br>
+                
+                    <p>Email Id:      
+                        <input type="text" id="en" name="email"></p>
+                <span id="et"></span><br>
+                
+                    <p> User Id:
+                        <input type="text" id="un" name="user"></p>
+                <span id="ui"></span><br>
+                
+                    <p> Password: 
+                        <input type="password" id="pass" name="pw"></p>
+                 <span id="ps"></span><br>
+                
+                    <p> Confirm-Password:
+                        <input type="confirm-password" id="cp" name="cname"></p>
+                 <span id="cfm"></span><br>
+                
+                <input type="submit" value="submit" name="submit" id="submit">
+    
+            
+        
+        </form>    
+        <script>
+            
+            function validation()
+            {
+             var a=document.getElementById("fn").value;                                                                                            
+             var b=document.getElementById("ln").value;
+             var c=document.getElementById("en").value;
+             var d=document.getElementById("un").value;
+             var e=document.getElementById("pass").value;
+             var f=document.getElementById("cp").value;
+            
+
+            if (a == "") 
+            {
+                document.getElementById("ft").innerHTML = "**Enter Your First Name";
+                return false;
+            }
+            if (a!= "") 
+            {
+                document.getElementById("ft").innerHTML = "";
+            }
+            
+            
+            
+            if (b == "")
+            {
+                document.getElementById("lt").innerHTML = "**Enter Your Last Name";
+                return false;
+            }
+            if (b != "") 
+            {
+                document.getElementById("lt").innerHTML = "";
+            }
+            
+            
+            
+            if (c == "") 
+            {
+                document.getElementById("et").innerHTML = "**Enter Your Email ID";
+
+            }
+                if(c.indexOf('@')<0)
+                {
+                 document.getElementById("et").innerHTML = "";
+
+                }
+            
+            
+            
+            if (d == "")
+            {
+                document.getElementById("ui").innerHTML = "**Enter Your User ID";
+                return false;
+            }
+            if (d != "") 
+            {
+                document.getElementById("ui").innerHTML = "";
+            }
+            if (e == "")
+            {
+                document.getElementById("ps").innerHTML = "**Enter The Password";
+                return false;
+            }
+            if (f == "")
+            {
+                document.getElementById("cfm").innerHTML = "**Enter The Confirmation Password";
+                return false
+            }
+            if (e != f)
+            {
+                document.getElementById("ps").innerHTML = "**Password Not Matching";
+                document.getElementById("cfm").innerHTML = "**Password Not Matching";
+                return false;
+
+            }
+           
+            
+            if (a != "" && b != "" && c != "" && d != "" && e!= "" && f != "")
+            {
+                alert("Successfully Created");
+            }
+                return false;
+        }
+        
+               
+            
+
+        </script>
+    </body>
+</html>
