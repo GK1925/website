@@ -1,0 +1,23 @@
+{
+    "name": "NodeTWitterStreamAPI",
+    "version": "1.0.0",
+    "description": "A demo app to show how to use twitter streaming api",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git"
+    },
+    "keywords": [
+        "Twitter",
+        "Node.js",
+        "Twitter Streaming API"
+    ],
+    "dependencies": {
+        "dotenv": "^8.2.0",
+        "epxress": "0.0.1-security",
+        "express": "^4.17.1",
+        "twit": "^2.2.11"
+    }
+}
